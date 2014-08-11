@@ -35,6 +35,8 @@ https://www.gdgdocs.org/forms/d/1Ycw5cIkCzhB1ivycGYT2Z99YlaV0cvhIu52z_9Jpp1o/vie
 **Updates:  短链接、二维码使用方法 20140811**
 
  - 已经升级最新版本 nginx1.6.1，支持 spdy3
+ 
+ - 一键安装包已经更新到最新版，支持二维码、短链接，SPDY（需要自行开启） 
 
 GDGDocs 服务器环境
 --------------
