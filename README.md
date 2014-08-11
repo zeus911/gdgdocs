@@ -1,5 +1,5 @@
 #GDGDocs
-------------------
+
 
 简介
 --------------
@@ -30,6 +30,11 @@ https://www.gdgdocs.org/forms/d/1Ycw5cIkCzhB1ivycGYT2Z99YlaV0cvhIu52z_9Jpp1o/vie
  - 替换域名： https://gdgdocs.org/r/jc77Y4  （可以访问）
 
  - 二维码链接是： https://gdgdocs.org/qr/jc77Y4 （可以访问）
+
+
+**Updates:  短链接、二维码使用方法 20140811**
+
+ - 已经升级最新版本 nginx1.6.1，支持 spdy3
 
 GDGDocs 服务器环境
 --------------
