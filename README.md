@@ -23,6 +23,8 @@ https://docs.google.com/forms/d/1Ycw5cIkCzhB1ivycGYT2Z99YlaV0cvhIu52z_9Jpp1o/vie
 (可以打开)
 https://www.gdgdocs.org/forms/d/1Ycw5cIkCzhB1ivycGYT2Z99YlaV0cvhIu52z_9Jpp1o/viewform 
 
+也可以参考使用珠海 GDG 提供的转换工具一次性生成短链接和二维码链接，[使用说明][8]
+
 **Updates:  短链接、二维码使用方法 20140808**
 
  - 到 goo.gl 缩短网站，我们假定缩短后的网址是：http://goo.gl/jc77Y4 （部分地区无法访问）
@@ -120,3 +122,4 @@ proxy_set_header Host docs.google.com; # 备注2
   [5]: http://www.qiniu.com/
   [6]: http://lnmp.org/
   [7]: http://opensource.org/licenses/mit-license.php
+  [8]: https://github.com/GDGNanyang/gdgdocs/blob/master/WechatToolByZHGDG.md
