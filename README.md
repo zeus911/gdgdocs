@@ -43,13 +43,13 @@ https://www.gdgdocs.org/forms/d/1Ycw5cIkCzhB1ivycGYT2Z99YlaV0cvhIu52z_9Jpp1o/vie
 GDGDocs 服务器环境
 --------------
 
- - 云服务商：Google Cloud Coumpute
+ - 云服务商：Google Cloud Coumpute、中华电信 hicloud
  
- - 区域：us-central1-a 
+ - 区域：us-central1-a 、第一区域
 
- - 机器类型：n1-standard-1 (1 个 vCPU，3.8GB 内存) 
+ - 机器类型：n1-standard-1 (1 个 vCPU，3.8GB 内存) 、标准型Mini-Promotions (Linux) 等同于1GHz运算能力 ,1 GB 内存 ,30 GB 硬盘
 
- - GCE 网络负载均衡
+ - GCE 网络负载均衡、么有负载均衡
  
  - DnsPod.cn 免费版解析 
 
