@@ -9,7 +9,7 @@ fi
 clear
 
 echo "========================================================================="
-echo "无障碍使用Google Docs - Form服务：GDGDocs.org 开源了"
+echo "无障碍使用Google Docs - Form服务：GDGDocs.org 开源了 v1.1 20140811"
 echo "========================================================================="
 echo "更多信息请访问：http://gdgny.org/ 南阳谷歌开发者社区"
 echo "========================================================================="
@@ -55,7 +55,8 @@ yum -y install cpio
 yum -y install expat-devel
 yum -y install gettext-devel
 yum -y install perl-CPAN
-wget https://git-core.googlecode.com/files/git-1.9.0.tar.gz
+wget http://git-core.googlecode.com/files/git-1.9.0.tar.gz
+echo "如果此处下载失败，请重新下载 git-1.9.0.tar.gz"
 tar xzvf git-1.9.0.tar.gz
 cd git-1.9.0
 autoconf
@@ -68,13 +69,13 @@ fi
 # 安装 Nginx Stable 版
 yum -y install openssl openssl-devel
 yum -y install pcre-devel
-wget http://nginx.org/download/nginx-1.4.7.tar.gz
+wget http://nginx.org/download/nginx-1.6.1.tar.gz
 
 git clone https://github.com/agentzh/headers-more-nginx-module.git $HOME/more_module/headers-more-nginx-module/
 git clone https://github.com/yaoweibin/ngx_http_substitutions_filter_module.git $HOME/more_module/ngx_http_substitutions_filter_module/
-tar zxvf nginx-1.4.7.tar.gz
-cd nginx-1.4.7
-./configure  --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module --with-http_gzip_static_module --with-ipv6 --with-http_sub_module --add-module=$HOME/more_module/headers-more-nginx-module/  --add-module=$HOME/more_module/ngx_http_substitutions_filter_module/
+tar zxvf nginx-1.6.1.tar.gz
+cd nginx-1.6.1
+./configure  --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module --with-http_spdy_module --with-http_gzip_static_module --with-ipv6 --with-http_sub_module --add-module=$HOME/more_module/headers-more-nginx-module/  --add-module=$HOME/more_module/ngx_http_substitutions_filter_module/
 
 make && make install
 
@@ -127,6 +128,20 @@ server
 
             proxy_hide_header Location;
           }
+          
+          location /r/ {
+                proxy_pass         http://goo.gl/;
+                proxy_set_header   Host goo.gl;
+                proxy_set_header   X-Real-IP  $remote_addr;
+                proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
+           }
+        
+          location ^~ /qr/ {
+                proxy_pass http://chart.apis.google.com/chart?cht=qr&chs=500x500&chld=H|0&chl=http%3A//$domain/r/;
+                proxy_set_header   Host chart.apis.google.com;
+                proxy_set_header   X-Real-IP  $remote_addr;
+                proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
+           }
      }
 eof
 
