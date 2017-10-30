@@ -6,10 +6,10 @@
 
 GDGDocs 是一个无障碍访问 Google Docs 解决方案之一（针对用户）免费、无广告恶意程序、开源
 
-  - 用户无障碍访问**公开的** Google 表单
-  - 用户无障碍访问**[已发布到网络][1]**的 Google 文档
-  - 用户无障碍访问**[已发布到网络][2]**的 Google 电子表格
-  - 用户无障碍访问**[已发布到网络][3]**的 Google 演示文稿
+  - 用户无障碍访问 **公开的** Google 表单
+  - 用户无障碍访问 **[已发布到网络][1]** 的 Google 文档
+  - 用户无障碍访问 **[已发布到网络][2]** 的 Google 电子表格
+  - 用户无障碍访问 **[已发布到网络][3]** 的 Google 演示文稿
 
 使用方法
 -------
@@ -57,7 +57,7 @@ GDGDocs 服务器环境
 ---------
 - 本服务是为 GDG 社区免费提供的，服务器资源由 [Google][4] 赞助，图片等静态资源由[七牛云存储][5]赞助，我们授权所有非盈利组织、开源社区、技术社区使用。
 
-- 无论是任何人使用，都请注意**：珍惜网络资源是每个网民应该做的**，请勿使用本服务传播有害内容，至于什么是有害内容：
+- 无论是任何人使用，都请注意：**珍惜网络资源是每个网民应该做的**，请勿使用本服务传播有害内容，至于什么是有害内容：
 
  - **不适合在公众场合展览的**
  - **不能给你家小孩儿看的**
@@ -84,20 +84,6 @@ chmod +x centos.sh
 ./centos.sh
 ```
 
-如果你在国内部署该服务的话，请对配置文件
-    
-    /usr/local/nginx/conf/vhost/你的反代域名.conf 
-
-内容做出如下修改：
-
-```sh 
-proxy_pass https://210.242.125.54; # 备注1
-proxy_set_header Host docs.google.com; # 备注2
-```
-**备注1**：之前这里是 docs.google.com，替换成任意反代服务器可用的 Google IP，北京机房的不行。
-
-**备注2**：这一行是新增添的。
-
 隐私权说明
 ----
  - 我们珍视你给予我们的信任，我们一定不会辜负这份信任
@@ -123,3 +109,4 @@ proxy_set_header Host docs.google.com; # 备注2
   [6]: http://lnmp.org/
   [7]: http://opensource.org/licenses/mit-license.php
   [8]: https://github.com/GDGNanyang/gdgdocs/blob/master/WechatToolByZHGDG.md
+
