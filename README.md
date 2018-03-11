@@ -7,9 +7,11 @@
 GDGDocs 是一个无障碍访问 Google Docs 解决方案之一（针对用户）免费、无广告恶意程序、开源
 
   - 用户无障碍访问 **公开的** Google 表单
-  - 用户无障碍访问 **[已发布到网络][1]** 的 Google 文档
-  - 用户无障碍访问 **[已发布到网络][2]** 的 Google 电子表格
-  - 用户无障碍访问 **[已发布到网络][3]** 的 Google 演示文稿
+  
+  - <s>用户无障碍访问 **[已发布到网络][1]** 的 Google 文档</s> [主站不再支持]
+  - <s>用户无障碍访问 **[已发布到网络][2]** 的 Google 电子表格</s>[主站不再支持]
+  - <s>用户无障碍访问 **[已发布到网络][3]** 的 Google 演示文稿</s> [主站不再支持]
+
 
 使用方法
 -------
@@ -43,19 +45,19 @@ https://www.gdgdocs.org/forms/d/1Ycw5cIkCzhB1ivycGYT2Z99YlaV0cvhIu52z_9Jpp1o/vie
 GDGDocs 服务器环境
 --------------
 
- - 云服务商：Google Cloud Coumpute、中华电信 hicloud
+ - 云服务商：Google Cloud Coumpute
  
- - 区域：us-central1-a 、第一区域
+ - 区域：us-central1-a
 
- - 机器类型：n1-standard-1 (1 个 vCPU，3.8GB 内存) 、标准型Mini-Promotions (Linux) 等同于1GHz运算能力 ,1 GB 内存 ,30 GB 硬盘
+ - 机器类型：n1-standard-1 (1 个 vCPU，3.8GB 内存)
 
- - GCE 网络负载均衡、么有负载均衡
+ - GCE 网络负载均衡
  
  - DnsPod.cn 免费版解析 
 
 使用条款
 ---------
-- 本服务是为 GDG 社区免费提供的，服务器资源由 [Google][4] 赞助，图片等静态资源由[七牛云存储][5]赞助，我们授权所有非盈利组织、开源社区、技术社区使用。
+- 本服务是为 GDG 社区免费提供的，我们授权所有非盈利组织、开源社区、技术社区使用。
 
 - 无论是任何人使用，都请注意：**珍惜网络资源是每个网民应该做的**，请勿使用本服务传播有害内容，至于什么是有害内容：
 
@@ -104,8 +106,6 @@ chmod +x centos.sh
   [1]: https://support.google.com/docs/answer/183965?hl=zh-Hans
   [2]: https://support.google.com/docs/answer/183965?hl=zh-Hans
   [3]: https://support.google.com/docs/answer/183965?hl=zh-Hans
-  [4]: https://www.google.com
-  [5]: http://www.qiniu.com/
   [6]: http://lnmp.org/
   [7]: http://opensource.org/licenses/mit-license.php
   [8]: https://github.com/GDGNanyang/gdgdocs/blob/master/WechatToolByZHGDG.md
