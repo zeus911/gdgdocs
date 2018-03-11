@@ -21,7 +21,7 @@ read -p "输入要部署 GDocs 反向代理的域名： " domain
 if [ ! -f "/usr/local/nginx/conf/vhost/$domain.conf" ]; then
 echo "==========================="
 echo "domain=$domain"
-echo "===========================" 
+echo "==========================="
 else
 echo "==========================="
 echo "$domain 已经存在咯!"
@@ -112,6 +112,60 @@ server
             proxy_set_header Accept-Encoding '';
             subs_filter_types text/css text/js;
             proxy_pass https://$gdoc_source/;
+            subs_filter docs.google.com  $domain
+            subs_filter lh1.googleusercontent.com dn-ggpt.qbox.me;
+            subs_filter lh2.googleusercontent.com dn-ggpt.qbox.me;
+            subs_filter lh3.googleusercontent.com dn-ggpt.qbox.me;
+            subs_filter lh4.googleusercontent.com dn-ggpt.qbox.me;
+            subs_filter lh5.googleusercontent.com dn-ggpt.qbox.me;
+            subs_filter lh6.googleusercontent.com dn-ggpt.qbox.me;
+            subs_filter lh7.googleusercontent.com dn-ggpt.qbox.me;
+            subs_filter lh8.googleusercontent.com dn-ggpt.qbox.me;
+            subs_filter lh9.googleusercontent.com dn-ggpt.qbox.me;
+            subs_filter lh10.googleusercontent.com dn-ggpt.qbox.me;
+            subs_filter ssl.gstatic.com dn-gstatic.qbox.me;
+            subs_filter www.gstatic.com dn-gstatic.qbox.me;
+
+            proxy_redirect          off;
+            proxy_set_header        X-Real-IP       \$remote_addr;
+            proxy_set_header        X-Forwarded-For \$proxy_add_x_forwarded_for;
+            proxy_set_header        Cookie "";
+            proxy_hide_header       Set-Cookie;
+            more_clear_headers      "P3P";
+
+            proxy_hide_header Location;
+          }
+
+          location /r/ {
+                proxy_pass         https://$short_source/;
+                proxy_set_header   Host goo.gl;
+                proxy_set_header   X-Real-IP  \$remote_addr;
+                proxy_set_header   X-Forwarded-For \$proxy_add_x_forwarded_for;
+           }
+
+          location ^~ /qr/ {
+                proxy_pass         https://$qr_source/chart?cht=qr&chs=500x500&chld=H|0&chl=http%3A//$domain/r/;
+                proxy_set_header   Host chart.apis.google.com;
+                proxy_set_header   X-Real-IP  \$remote_addr;
+                proxy_set_header   X-Forwarded-For \$proxy_add_x_forwarded_for;
+           }
+     }
+eof
+
+cat > /usr/local/nginx/conf/vhost/lb.$domain.conf << eof
+# 注意，这里提供的 dn-ggpt.qbox.me 等，是七牛为公益开发者社区的提供的赞助，请商业公司自行搭建，谢谢。
+server
+     {
+          listen       80;
+          server_name 0.$domain 1.$domain 2.$domain;
+          # conf ssl if you need
+          # SSL 配置请参见 gdgny.org/project/gdgdocs
+          add_header Access-Control-Allow-Credentials true;
+          add_header Access-Control-Allow-Headers "X-Same-Domain";
+          location / {
+            proxy_set_header Accept-Encoding '';
+            subs_filter_types text/css text/js;
+            proxy_pass https://0.$gdoc_source/;
             subs_filter docs.google.com  $domain
             subs_filter lh1.googleusercontent.com dn-ggpt.qbox.me;
             subs_filter lh2.googleusercontent.com dn-ggpt.qbox.me;
